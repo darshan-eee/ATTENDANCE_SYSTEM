@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(-45deg, #ff6ec4, #7873f5, #4ade80, #facc15);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 32px;
+}
+
+h1 {
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 28px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #7873f5, #ff6ec4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Summary section */
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.card {
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.present-card {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.absent-card {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.reset-btn {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+}
+
+.reset-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.4);
+}
+
+.reset-btn:active {
+  transform: translateY(0);
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+thead tr {
+  background: linear-gradient(135deg, #1f2937, #374151);
+}
+
+th {
+  color: #fff;
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+th:last-child,
+td:last-child {
+  text-align: center;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.15s ease;
+}
+
+tbody tr:nth-child(odd) {
+  background: rgba(248, 250, 252, 0.7);
+}
+
+tbody tr:hover {
+  background: #f0f4ff;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+td {
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* Action buttons (UPGRADED WITH ANIMATIONS) */
+.present-btn,
+.absent-btn {
+  border: 1px solid transparent;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Inactive Present Button */
+.present-btn {
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border-color: #bbf7d0;
+}
+
+.present-btn:hover {
+  background-color: #dcfce7;
+  color: #15803d;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(22, 163, 74, 0.15);
+}
+
+/* Active State Present Button - Triggering Elastic Pop Animation */
+.present-btn.active-p {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.4);
+  animation: presentPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Inactive Absent Button */
+.absent-btn {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+.absent-btn:hover {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(220, 38, 38, 0.15);
+}
+
+/* Active State Absent Button - Triggering Wobble Shake Animation */
+.absent-btn.active-a {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
+  animation: absentDrop 0.35s ease-in-out forwards;
+}
+
+/* Tactile fallback shrink for non-active states on quick taps */
+.present-btn:active,
+.absent-btn:active {
+  transform: scale(0.92);
+}
+
+/* ANIMATION KEYFRAMES */
+
+/* Present Animation: Quick bounce and swell */
+@keyframes presentPop {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Absent Animation: Dynamic structural side-to-side rejection */
+@keyframes absentDrop {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-5px) rotate(-3deg); }
+  40% { transform: translateX(4px) rotate(3deg); }
+  60% { transform: translateX(-3px) rotate(-1deg); }
+  80% { transform: translateX(2px) rotate(1deg); }
+  100% { transform: translateX(0) rotate(0); }
+}
+
+/* Status badge */
+.status {
+  display: inline-block;
+  min-width: 28px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.status-p {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.status-a {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.status-none {
+  background: #f3f4f6;
+  color: #9ca3af;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  th, td {
+    padding: 10px 8px;
+    font-size: 0.85rem;
+  }
+
+  .summary {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card,
+  .reset-btn {
+    text-align: center;
+  }
+}
