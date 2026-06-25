@@ -111,8 +111,8 @@ mongoose
   .connect(MONGO_URI)
   .then(() => {
     console.log("Connected to MongoDB Atlas");
-    app.listen(port, () => {
-      console.log(`Server is running on port ${port}`);
+    app.listen(PORT, () => {
+      console.log(`Server is running on PORT ${PORT}`);
     });
   })
   .catch(err => console.error("Database connection error:", err));
