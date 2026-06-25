@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Removed the duplicate app.use(express.json())
 
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.get("/darshan", (req, res) => {
   res.send("Server says Hello darshan");
